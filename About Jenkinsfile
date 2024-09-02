@@ -1,0 +1,72 @@
+A Jenkinsfile is a text file that forms the backbone of defining and managing a Jenkins Pipeline.
+It acts as a script, written in Groovy DSL (Domain Specific Language), that tells Jenkins what steps to take when automating your software delivery process.
+It is a combination of plugins that support the integration and implementation of continuous delivery pipelines using Jenkins.
+a Jenkins Pipeline is a collection of jobs or events that brings the software from version control into the hands of the end users by using automation tools. 
+It is used to incorporate continuous delivery in our software development workflow.
+
+Example of a simple Jenkinsfile:
+
+Groovy:
+
+pipeline {
+
+  agent any
+
+  stages {
+
+    stage('Build') {
+
+      steps {
+
+        echo 'Building the application...'
+
+        sh 'mvn package'
+
+      }
+
+    }
+
+    stage('Test') {
+
+      steps {
+
+        echo 'Running unit tests...'
+
+        sh 'mvn test'
+
+      }
+
+    }
+
+    stage('Deploy') {
+
+      steps {
+
+        echo 'Deploying to production...'
+
+        sh 'scp target/my-app.war my-server:/var/www/'
+
+      }
+
+    }
+
+  }
+
+}
+
+Understanding Jenkins..
+
+A Jenkins job is a sequential set of tasks that a user defines. For example, a job can fetch source code from version control, compile the code, run unit tests, and more.
+
+Jenkins Jobs are a given set of tasks that runs sequentially as defined by the user. Any automation implemented in Jenkins is a Jenkins Job. 
+These jobs are a significant part of Jenkins's build process. We can create and build Jenkins jobs to test our application or project. 
+
+Jenkins is an open-source automation server that helps developers automate various tasks related to building, testing, and deploying software applications. 
+It is one of the most popular continuous integration and continuous delivery (CI/CD) tools available today, used by many companies and organizations to streamline their software development processes.
+
+Jenkins allows developers to create pipelines that automate the entire software development process, from code check-in to testing, building, and deployment.
+It integrates with various tools and technologies used in the software development life cycle, such as Git, Maven, Docker, and Kubernetes, among others.
+
+Jenkins is highly customizable and extensible, with a vast array of plugins available to enhance its functionality and adapt it to specific needs.
+It also has a large and active community of users and contributors, who continuously improve and maintain the software.
+
