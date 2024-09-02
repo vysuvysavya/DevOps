@@ -70,3 +70,94 @@ It integrates with various tools and technologies used in the software developme
 Jenkins is highly customizable and extensible, with a vast array of plugins available to enhance its functionality and adapt it to specific needs.
 It also has a large and active community of users and contributors, who continuously improve and maintain the software.
 
+Jenkins Master (Server)
+
+The crucial configurations for Jenkins are held within the server or master node. This Jenkins master server serves as a control center, overseeing all of the workflows established in the pipelines.
+It carries out a range of tasks, such as job scheduling and job monitoring.
+
+key Jenkins master components:-
+
+1) Jenkins Jobs
+
+A job refers to a set of tasks that can be utilized to construct your source code, perform code testing, execute a shell script, 
+carry out an Ansible role on a remote host, or implement a terraform play, among other things. These tasks are typically referred to as a Jenkins pipeline.
+If you translate the above steps to a Jenkins pipeline job, it looks like the following.
+
+
+
+2) Jenkins Plugins
+
+Plugins are modules that have been developed by the community and can be installed on your Jenkins server. They provide additional features that are not present in the native Jenkins environment.
+
+For instance, if you wish to transfer a file to an s3 bucket from Jenkins, you may install an AWS Jenkins plugin and take advantage of the abstracted plugin functionalities to perform the file upload,
+rather than writing your own AWS CLI logic. The plugin manages error and exception handling on your behalf.
+
+You can install/upgrade all the available plugins from the Jenkins dashbaord itselft. For corporate network, you will have to setup a proxy details to connect to the plugin repository.
+
+You can also download the plugin file and install it by copying it to the plugins directory under /var/lib/jenkins folder.
+
+
+3 ) Jenkins Global Security
+
+Jenkins has the following type of primary authentication methods.
+
+a) Jenkins’s own user database:- Set of users maintained by Jenkins’s own database. When we say database, its all flat config files (XML files).
+
+b) LDAP Integration:- Jenkins authentication using corporate LDAP configuration.
+
+c) SAML Single Sign On(SSO): Support single signon using providers like Okta, AzureAD, Auth0 etc.
+
+
+4 ) Jenkins Credentials
+   
+During the setup of Jenkins pipelines, it may become necessary to establish connections to cloud accounts, servers, databases, or API endpoints utilizing confidential information.
+In Jenkins, you can save different types of secrets as a credential.
+
+Secret text
+Username & password
+SSH keys
+Jenkins utilizes AES encryption to protect all credentials. The secrets are saved within the $JENKINS_HOME/secrets/ directory.
+It is crucial to safeguard this directory and remove it from any Jenkins backups.
+
+Jenkins Agent
+
+Jenkins agents are the worker nodes that actually execute all the steps mentioned in a Job. When you create a Jenkins job, you have to assign an agent to it. Every agent has a label as a unique identifier.
+
+When you trigger a Jenkins job from the master, the actual execution happens on the agent node that is configured in the job.
+
+A master Jenkins instance can be connected to numerous agents, which may consist of Windows or Linux servers, as well as containers, which can serve as build agents.
+
+Furthermore, it is possible to limit job execution to specific agents, depending on the requirements. For instance, if an agent has Java 8 configurations,
+it can be assigned to tasks that necessitate a Java 8 environment.
+
+There is no set protocol for utilizing agents. You can develop a workflow and strategy that is tailored to the needs of your project.
+
+Jenkins Master-agent Connectivity
+
+Connecting a Jenkins master and Agent
+
+Using the SSH method: Uses the ssh protocol to connect to the agent. The connection gets initiated from the Jenkins master. Ther should be connectivity over port 22 between master and agent.
+
+There are two types of Jenkins agents
+
+Agent Nodes: These refer to Windows or Linux servers that have been configured as static agents. These agents are always available and connected to the Jenkins server. 
+Organizations typically utilize custom scripts to shut down and restart these agents when they are not in use, typically during nights and weekends.
+Agent Clouds: The Jenkins Cloud agent model involves dynamic agents. This means that when a job is initiated, an agent is deployed as a virtual machine or container 
+on demand and is deleted once the job is completed. This approach is beneficial for large Jenkins ecosystems that have a high volume of continuous builds, as it helps to save infrastructure costs.
+Jenkins Data
+
+Jenkins stores all of its data in the following folder location: /var/lib/jenkins/. This includes configuration files for all jobs, plugin configurations, secrets, and node information. 
+This characteristic makes Jenkins migration significantly easier in comparison to other tools.
+
+If you examine /var/lib/jenkins/, you will discover that most of the configurations are in XML format.
+
+It is crucial to back up the Jenkins data folder on a daily basis. In the event that your Jenkins server data becomes corrupted for any reason, you can restore the entire Jenkins instance with the backup data.
+
+When deploying Jenkins in production, it is best to attach a dedicated extra volume to the Jenkins servers that contains all of the Jenkins data.
+
+
+Jenkins Web Interface
+
+Jenkins 2.0 introduced a very intuitive web interface called “Jenkins Blue Ocean“. It has a good visual representation of all the pipelines.
+
+
