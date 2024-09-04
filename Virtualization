@@ -1,0 +1,20 @@
+Virtualization is a strategy for separating a service from its underlying physical delivery mechanism. 
+It is the process of constructing a virtual representation of anything, such as computer hardware. 
+It was first created during the mainframe era. It entails utilizing specialized software to generate a virtual or software-created representation of a computer resource rather than the actual resource itself.
+Virtualization allows different operating systems and applications to operate on the same computer and hardware at the same time, enhancing hardware usage and flexibility. 
+
+In other words, virtualization is one of the most common cost-effective, hardware-reducing, and energy-saving approaches employed by cloud providers.
+Virtualization allows several consumers and organizations to share a single physical instance of a resource or application at the same time.
+It accomplishes this by giving a logical name to physical storage and delivering a reference to that resource when needed. 
+The word "virtualization" is frequently used interchangeably with hardware virtualization, which is critical to successfully offering Infrastructure-as-a-Service (IaaS) cloud computing solutions.
+Furthermore, virtualization technologies create a virtual environment for programs, storage, memory, and networking.
+
+
+Virtualization has a significant influence on cloud computing. on the case of cloud computing, users store data on the cloud,
+but with the aid of virtualization, they have the added benefit of sharing infrastructure.
+Cloud vendors supply the necessary physical resources, but they demand a high cost for these services, which affects every customer or company.
+Virtualization assists users or organizations in sustaining those services that a company need through external (third-party) workers, hence lowering the firm's costs.
+This is how virtualization works in cloud computing. 
+
+
+
