@@ -1,6 +1,8 @@
 A Jenkinsfile is a text file that forms the backbone of defining and managing a Jenkins Pipeline.
+
 It acts as a script, written in Groovy DSL (Domain Specific Language), that tells Jenkins what steps to take when automating your software delivery process.
 It is a combination of plugins that support the integration and implementation of continuous delivery pipelines using Jenkins.
+
 a Jenkins Pipeline is a collection of jobs or events that brings the software from version control into the hands of the end users by using automation tools. 
 It is used to incorporate continuous delivery in our software development workflow.
 
