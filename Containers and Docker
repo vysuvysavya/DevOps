@@ -1,0 +1,57 @@
+What are Containers ?
+
+Containers are a lightweight form of virtualization that allows software applications to be packaged along with their dependencies and run consistently across different computing environments. Containers provide a way to isolate applications and their dependencies from the underlying operating system, making it easier to develop, deploy, and manage applications in a consistent and reproducible manner.
+
+At a high level, a container is a standalone and executable software package that includes everything needed to run a piece of software, including the code, runtime, system tools, libraries, and settings. Containers are similar to virtual machines (VMs), but unlike VMs, which emulate an entire operating system, containers share the same OS kernel with the host system and do not require a separate operating system to be installed for each container. This makes containers more lightweight and faster to start and stop compared to traditional VMs.
+
+Imagine you have a recipe for making a cake, and you want to bake multiple cakes with the same recipe. You could bake each cake separately, which would take a lot of time and effort, or you could use a cake mold that lets you bake multiple cakes at once, all with the same shape and consistency. Containers are like those cake molds, but for software applications.
+
+In the world of software development, a container is a self-contained package that includes everything needed to run a piece of software, such as the code, runtime, libraries, and settings. Containers are created from container images, which are like the recipe for the software application. Just like you can use the same recipe to bake multiple cakes, you can use the same container image to create multiple containers that run the same software application.
+
+Containers are similar to virtual machines (VMs), but they are much lighter and faster. VMs are like separate computers running their own operating systems, while containers share the same operating system with the host system. This makes containers more efficient and faster to start and stop compared to VMs.
+
+Need Of Containers
+
+Containers and virtual machines (VMs) are both technologies used in software development and deployment, but they have some key differences:
+
+1) Operating System: Containers share the host operating system, whereas VMs run a separate guest operating system. This means that containers are more lightweight and faster to start, as they don't require booting up an entire operating system like VMs do.
+
+2) Resource Usage: Containers use fewer resources compared to VMs because they don't require redundant copies of an operating system. Containers only package the application and its dependencies, while VMs package the entire operating system, which can lead to higher resource utilization in terms of CPU, memory, and storage.
+
+3) Isolation: Containers provide application-level isolation, meaning that each container runs in its own isolated environment, but shares the host OS kernel. VMs, on the other hand, provide stronger isolation as they run on a separate guest OS with its own kernel. This makes VMs more suitable for running applications that require strict isolation, such as running multiple different operating systems or legacy applications.
+
+4) Portability: Containers are highly portable because they package the application and its dependencies into a single container image that can be run on any system with a container runtime, regardless of the underlying host OS. VMs, on the other hand, are less portable as they require a specific hypervisor to run, which may not be available on all systems.
+
+5) Management: Containers are easier to manage compared to VMs because they can be quickly started, stopped, and scaled. Container orchestration platforms, such as Kubernetes, provide robust management and scaling capabilities for containers. VMs, on the other hand, require more overhead in terms of managing the guest operating system, updates, and patches.
+
+6)Development Workflow: Containers are often used in modern DevOps workflows, where developers can package their applications and dependencies into containers and deploy them consistently across different environments. VMs, on the other hand, are typically used in more traditional development workflows where applications are deployed on separate VMs for development, testing, and production.
+
+Containers were developed as a response to some of the limitations and challenges associated with virtual machines (VMs). While VMs have been widely used for application deployment, there were certain drawbacks that led to the need for containers.
+In summary, while VMs have been widely used for application deployment, containers offer advantages in terms of resource efficiency, portability, speed, agility, and ease of management, making them a popular choice for modern software development and deployment scenarios. Containers complement VMs and provide additional flexibility and efficiency in certain use cases, leading to their widespread adoption in the software development community.
+ 
+
+What is Docker ?
+
+Docker is like a virtual shipping container for software applications. Just like how physical shipping containers provide a standardized way to package and transport goods, Docker containers provide a standardized way to package and run software applications.
+
+Imagine you have a piece of software, let's say a web application, that needs to run on different computers or servers, like your local computer for development, a testing server for testing, and a production server for deployment. Instead of installing the software and all its dependencies separately on each computer, which can be time-consuming and error-prone, you can package the software and its dependencies into a Docker container once, and then run the container consistently across different environments.
+
+A Docker container is a standalone, lightweight, and portable package that contains everything needed to run the software, including the code, runtime, libraries, and dependencies. It's like a self-contained unit that can be easily moved, shared, and run on any computer that has Docker installed, without worrying about differences in underlying infrastructure, operating systems, or configurations.
+
+Docker provides tools, technologies, and a large ecosystem of container images and services that make it easy for developers to create, manage, and deploy containers. It allows developers to package their applications into containers, share and download container images from a centralised registry like Docker Hub, and run containers using Docker Engine or other container runtimes. Docker also integrates with other popular tools and platforms like Kubernetes for container orchestration and management at scale.
+
+Using Docker can improve development speed, application portability, deployment flexibility, scalability, and resource utilization, making it a popular choice for modern software development and deployment scenarios. Just like how shipping containers revolutionized the transportation of goods, Docker has revolutionized the way software applications are packaged, distributed, and deployed, making it easier and more efficient for developers to build and run applications in containers.
+
+Uses Of Docker
+
+1) Multi-Tenancy: Docker allows for the creation of isolated and independent containers, which can be used to host multiple applications or services on the same physical or virtual host. This enables efficient utilization of resources and prevents conflicts between different applications or services running on the same host. Each container can have its own dependencies, configurations, and resource allocations, providing a high level of isolation and security.
+
+2) Legacy Application Modernization: Docker can be used to modernize legacy applications by encapsulating them in containers. This allows organizations to leverage the benefits of containerization, such as portability, scalability, and ease of deployment, without having to rewrite or re-architect the entire application. Legacy applications can be containerized and deployed in modern infrastructure, such as cloud platforms or container orchestration frameworks like Kubernetes, enabling organisations to modernise their applications without significant disruptions.
+
+3) Disaster Recovery and High Availability: Docker containers can be used to create replicas or backup instances of applications for disaster recovery and high availability scenarios. Containers can be easily replicated and moved between hosts or data centers, allowing for efficient backup and recovery strategies. Docker also supports features like container checkpoints and live migration, which enable seamless migration of containers between hosts with minimal downtime, making it suitable for high availability and disaster recovery scenarios.
+
+4) IoT and Edge Computing: Docker can be used in IoT (Internet of Things) and edge computing scenarios where computing resources may be limited or distributed across different devices. Containers can be used to package and deploy applications or services on edge devices, such as gateways, routers, or IoT devices, providing a consistent runtime environment and enabling efficient deployment and management of applications at the edge of the network.
+
+5) DevOps and Team Collaboration: Docker promotes DevOps practices by providing a standardized way to package, distribute, and run applications. Containers can be used to create reproducible build environments, automate testing and deployment workflows, and facilitate collaboration among team members. Docker also integrates with popular DevOps tools, such as Jenkins, GitLab, and Kubernetes, enabling seamless integration into modern DevOps pipelines and facilitating team collaboration.
+
+ 
