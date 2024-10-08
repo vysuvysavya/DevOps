@@ -1,0 +1,130 @@
+) 1) What’s the difference between continuous integration, continuous delivery, and continuous deployment?
+
+Continuous integration is a DevOps practice, where developers continuously integrate the code changes into a central repository. It most often refers to the build or the integration stage of the software release process. A continuous integration service helps to automatically build and run unit tests on the new code changes to find any errors instantly.
+
+Continuous delivery expands upon continuous integration by deploying all the code changes to the testing environment and later to the production environment after the build stage.
+
+Continuous Deployment is a software process that uses automated testing to confirm if changes to a core code doesn’t break the existing functionality and it is stable, for instant autonomous deployment to a production environment.
+
+2) What are the  types of tests used in CI/CD ?
+
+Unit tests verify that classes or functions perform as anticipated.
+Integration tests are used to ensure that an application’s various components work well together.
+End-to-end testing: evaluate a programme by simulating user interaction.
+Static tests: detect errors in the code without running it.
+Security checks: look for known security flaws in the application’s dependencies.
+Smoke tests are quick evaluations that determine whether the application can run and whether the infrastructure is prepared to receive deployments.
+3) What is meant by CI-CD?
+
+CI/CD is a series of steps that include all the stages from the beginning of the CI/CD process and it is responsible for creating an automated and seamless software delivery process. With a CI/CD pipeline, a software release artifact can move and progress through the pipeline right from the code check-in stage through the builds, tests, and different deployment stages
+
+4) What is a build pipeline?
+
+When a piece of code transitions from development to production, it goes through a set of processes called a build pipeline. These procedures often involve creating the code, conducting automated tests, and releasing it to the staging and production environments.
+
+5) What is a deployment pipeline?
+
+When code changes are released into production, they proceed through a deployment pipeline, a set of procedures. The creation of the code, the execution of automated tests, and the deployment to live environments are among these procedures.
+
+6) What is the difference between a build and a release?
+
+A release is moving an executable binary from a development environment into a production one. A build is a process of converting source code into an executable binary. While the release process is usually manual and only happens sometimes, the build process is typically automated and happens several times daily.
+
+7) How Do you ensure Security for CI-CD pipeline ?
+
+There are several recommended methods for ensuring the security of the CI/CD pipeline. Here are a few examples:
+
+a)To safeguard the pipeline and its components from unauthorized access, it is necessary to establish access controls and authentication procedures.
+
+ b) Identifying security flaws entails examining code and dependencies for vulnerabilities and employing static and dynamic analysis techniques.
+It is crucial to securely store and transmit sensitive data, such as secrets and credentials, using reliable methods.
+
+ c) Ensuring a secure build process involves utilizing trusted sources for dependencies and verifying the authenticity of builds through signing.
+Regular inspections and analyses of the pipeline's security should be conducted as part of standard practice.
+
+8) How do you measure the success of a CI/CD pipeline?
+
+Measuring the success of a CI/CD pipeline involves tracking and analyzing several metrics, such as:
+
+Lead time: The amount of time it takes from a code change to a production release.
+ 
+Deployment frequency: The number of deployments that take place in a certain amount of time.
+ 
+Mean time to detect (MTTD): Particular period of time.
+ 
+9) What re the tools used to achieve CI CD ? 
+ 
+  a) Jenkins: An open-source automation server that enables continuous integration and delivery.
+  b) Travis CI: A cloud-based CI platform primarily used for open-source projects.
+  c) CircleCI: A cloud-based CI/CD platform with support for various programming languages and frameworks.
+  d) GitLab CI/CD: A built-in CI/CD platform provided by GitLab for managing the software development lifecycle.
+  e) Azure DevOps: A comprehensive suite of CI/CD tools offered by Microsoft, including Azure Pipelines.
+
+10 )  What is Jenkins? 
+
+Jenkins is a self-contained, open-source automation server that can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software. Jenkins can be installed through native system packages, Docker, or even run standalone by any machine with a Java Runtime Environment (JRE) installed.
+
+11) What is a Jenkins job?
+
+A Job/Project is the fundamental unit of a logical work (like a software build, an automation task, test execution, etc) using the Jenkins automation server and other required plugins, configurations & infrastructures.
+
+Jobs can be of different types like – a freestyle project, a multi-configuration project, a pipeline project, a multi-branch project, etc.
+
+12)  How do you store credentials in Jenkins securely?
+
+Credentials can be stored securely in Jenkins using the Credentials plugin, which stores different types of credentials like – Username with a password, SSH username with the private key, AWS Credentials, Jenkins Build Token, Secret File/Text, X509 & other certificates, Vault related credentials securely with proper encryption & decryption as and when required.
+
+13) Explain the difference between a Jenkins pipeline and a freestyle project.
+
+A Jenkins pipeline is a suite of plugins that allows you to define and manage your build process as code. It enables the creation of complex, multistage pipelines with advanced features like parallelization, error handling, and more. Pipelines are written in a Jenkins-specific domain-specific language (DSL) or can be defined using a Jenkinsfile, which resides alongside the source code. 
+On the other hand, a freestyle project in Jenkins is a traditional, configuration-based build setup. It offers a more straightforward, point-and-click interface, allowing users to configure individual build steps and actions without writing code.
+
+14) How can you secure Jenkins and restrict user access?
+
+Jenkins provides several security mechanisms to secure and control user access:
+User authentication: Jenkins supports various authentication methods, including its internal user database, integration with LDAP or Active Directory, or using external security providers like GitHub or Google.
+User authorization: Jenkins allows you to define granular access control based on user roles or permissions. Roles can be configured to restrict access to specific projects, build steps, or administrative functions.
+Access control lists (ACL): Jenkins has an Access Control List mechanism that provides fine-grained control over who can perform specific actions within Jenkins.
+Plugin-based security: Additional security plugins are available for Jenkins, such as Role-based Authorization Strategy, which further enhances security capabilities.
+ 
+15) What are Jenkins agents (formerly known as slaves), and how do they work?
+
+Jenkins agents (or slaves) are distributed computing resources that execute tasks assigned by the Jenkins master. Agents can run on different physical or virtual machines, allowing workloads to be distributed across multiple nodes. Agents can be configured to run on different operating systems, enabling parallelization and scalability. The Jenkins master schedules and delegates tasks to available agents based on workload and availability. Agents communicate with the master to report their status and receive instructions for the assigned tasks. This distributed architecture allows Jenkins to handle large-scale builds and parallelize jobs effectively.
+
+16) How can you configure Jenkins to trigger a build automatically after a code push to a specific branch in a Git repository?
+
+To configure Jenkins to trigger a build automatically after a code push to a specific branch in a Git repository, you can follow these steps:
+Install the Git plugin in Jenkins if not already installed.
+In the Jenkins project configuration, under the "Build Triggers" section, select the option "Poll SCM."
+In the "Schedule" field, enter a polling schedule, such as "* * * * *" to check for changes every minute.
+Specify the Git repository URL and credentials in the appropriate fields.
+In the "Additional Behaviors" section, click "Add" and select "Polling ignores commits with certain messages."
+Specify a regular expression pattern in the "Included Regions" field to match the branch you want to monitor, e.g., refs/heads/your-branch-name.
+Save the configuration.
+With this setup, Jenkins will poll the specified Git repository at the scheduled interval, and if any new commits are found in the specified branch, it will trigger a build automatically. The build process can then include steps like fetching the latest code, running tests, and deploying the application as per your defined CI/CD pipeline.
+It's worth noting that this is one way to trigger builds in Jenkins based on code changes, and there are alternative methods like using webhooks or Jenkins plugins specifically designed for integration with Git providers (e.g., GitHub, Bitbucket, GitLab) that offer more efficient and real-time triggering of builds upon code pushes.
+
+Remember to adjust the configuration to match your specific repository, branch, and desired polling schedule.
+
+17) What are GitHub Actions, and how do they differ from other continuous integration/continuous deployment (CI/CD) tools?
+
+GitHub Actions is a powerful automation feature provided by GitHub that allows developers to define custom workflows and automate various tasks within their software development processes. It integrates seamlessly with the GitHub platform, enabling developers to trigger actions based on specific events, such as push, pull request, or issue creation. Unlike other CI/CD tools, GitHub Actions is tightly integrated with the GitHub ecosystem, providing a unified experience and eliminating the need for external services or plugins.
+
+18) How can you define and configure a GitHub Actions workflow?
+To define a GitHub Actions workflow, you need to create a YAML file called workflow.yml or any other name ending with .yml in the .github/workflows directory of your repository. This file specifies the events that trigger the workflow, the jobs to be performed, and the steps within each job. You can define environment variables, secrets, and specify which runners (virtual machines) should execute the workflow. The YAML syntax is used to configure the workflow, and it supports various features such as conditional expressions, matrix configurations, and workflow dependencies.
+
+19) What are some common use cases for GitHub Actions?
+  
+GitHub Actions can be used for a wide range of automation tasks in the software development lifecycle. Some common use cases include:
+
+  a) Continuous Integration (CI): Automatically building, testing, and validating code changes with each push or pull request.
+
+  b) Continuous Deployment (CD): Automating the deployment process of applications to staging or production environments.
+
+  c) Code quality and analysis: Running linters, static code analyzers, or other tools to ensure code quality and adherence to best practices.
+
+  d) Notifications and alerts: Sending notifications via email, Slack, or other communication channels when specific events occur, such as failed builds or security vulnerabilities.
+
+20) How can secrets be securely used within GitHub Actions?
+
+GitHub Actions provides a built-in mechanism called "secrets" to securely store sensitive information such as API keys, access tokens, or passwords. To use secrets within a workflow, you need to define them in the repository's settings. Once defined, secrets can be accessed within your workflow using environment variables, which are injected securely during runtime. It's important to note that secrets are encrypted and can only be used within the same repository or organization where they are defined. They are not exposed to workflow logs or accessible to contributors without appropriate permissions.
